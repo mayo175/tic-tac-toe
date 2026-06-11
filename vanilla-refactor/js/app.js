@@ -161,11 +161,23 @@ const App = {
 // const menu = document.querySelector(".menu");
 // const menuItems = menu.querySelector(".items");
 
-window.addEventListener("load", App.init);
+// window.addEventListener("load", App.init);
 
 function init() {
   const view = new View();
-  console.log(view.$.turn);
+  view.bindGameResetEvent(event => {
+    console.log('Reset event')
+    console.log(event)
+  })
+  view.bindNewRoundEvent(event => {
+    console.log('New Round event')
+    console.log(event)
+  })
+
+  view.bindPlayerMoveEvent(event => {
+    console.log('Player Move event')
+    console.log(event)
+  })
 }
 
-window.addEventListener("load", init());
+window.addEventListener("load", init);
