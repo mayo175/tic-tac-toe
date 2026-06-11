@@ -175,9 +175,10 @@ function init() {
   })
 
   view.bindPlayerMoveEvent(event => {
-    console.log('Player Move event')
-    console.log(event)
+    view.setTurnIndicator(2);
+    view.playerMove(event.target, 1);
   })
+
 }
 
 window.addEventListener("load", init);
