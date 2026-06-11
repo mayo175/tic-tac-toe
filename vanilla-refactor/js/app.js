@@ -1,4 +1,5 @@
 import View from "./view.js";
+import Store from "./store.js";
 
 const App = {
   //all of the selected html elements
@@ -165,6 +166,10 @@ const App = {
 
 function init() {
   const view = new View();
+  const store = new Store();
+
+  console.log(store.game)
+
   view.bindGameResetEvent(event => {
     console.log('Reset event')
     console.log(event)
