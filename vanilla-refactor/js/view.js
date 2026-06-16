@@ -26,6 +26,7 @@ export default class View {
   //regist event listeners
   bindGameResetEvent(handler){
     this.$.resetBtn.addEventListener('click', handler);
+    this.$.modalBtn.addEventListener('click', handler);
   }
   bindNewRoundEvent(handler){
     this.$.newRoundBtn.addEventListener("click",handler)
@@ -40,19 +41,37 @@ export default class View {
   //DOM helper method
   openModal(winner){
     const label = document.createElement('p');
-    label.innerText = `${winner.name} wins!`;
-    this.$.modalText.replaceChildren(label);
+    if(winner){
+      label.innerText = `${winner.name} wins!`;
+      this.$.modalText.replaceChildren(label);
 
-    // Remove any previous winner classes
-    this.$.modalContents.classList.remove("winner-1", "winner-2");
+      // Remove any previous winner classes
+      this.$.modalContents.classList.remove("winner-1", "winner-2");
 
-    // Add the correct class
-    if (winner.id === 1) {
-      this.$.modalContents.classList.add("winner-1");
-    } else {
-      this.$.modalContents.classList.add("winner-2");
+      // Add the correct class
+      if (winner.id === 1) {
+        this.$.modalContents.classList.add("winner-1");
+      } else {
+        this.$.modalContents.classList.add("winner-2");
+      }
+    }else{
+      label.innerText = 'Tie!';
+      this.$.modalText.replaceChildren(label);
+
+      this.$.modalContents.classList.remove("winner-1", "winner-2");
+      this.$.modalContents.classList.add("tie");
     }
     this.$.modal.classList.remove('hidden');
+  }
+
+  closeModal(){
+    this.$.modal.classList.add('hidden');
+  }
+
+  clearBoard(){
+    this.$$.squares.forEach(square => {
+      square.replaceChildren();
+    })
   }
 
   #toggleMenu(){
