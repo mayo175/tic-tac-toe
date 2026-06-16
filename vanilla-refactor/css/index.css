@@ -237,7 +237,6 @@ footer a {
   height: 150px;
   width: 100%;
   max-width: 300px;
-  background-color: var(--brown);
   border-radius: 20px;
   display: flex;
   flex-direction: column;
@@ -250,7 +249,22 @@ footer a {
 
 .modal-contents button {
   padding: 10px;
-  background-color: var(--yellow);
-  color: var(--dark-gray);
   border-radius: 3px;
+}
+
+
+.winner-1{
+  background-color: var(--brown);
+}
+.winner-1 button{
+  background-color: var(--yellow); 
+  color: var(--dark-gray);
+}
+
+.winner-2{
+  background-color: var(--light-green);
+}
+.winner-2 button{
+  background-color: var(--turquoise);
+  color: var(--dark-gray);
 }
